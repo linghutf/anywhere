@@ -13,14 +13,14 @@ go run fileserv.go [-p 8080]
 ```
 2. build and run
 ```
-go build fileserv.go
+go build src/fileserv.go
 ./fileserve [-p 8080]
 ```
 
 3. executable file
 ```
-Windows:    fileserv.exe
-Mac/Linux:  ./fileserv
+Windows 64 bit:     fileserv.exe
+Mac/Linux 64 bit:  ./fileserv
 ```
 
 ## Visit
