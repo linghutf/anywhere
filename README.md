@@ -25,9 +25,11 @@ Mac/Linux 64 bit:  ./fileserv
 
 ## Visit
 
+another in the same local network
+(同一局域网访问) 
 ```
-http://localhost:8001        //default
-http://localhost:<your port> //self defined port
+http://ip:8001        //default,ip just try follow the tips which server given.
+http://ip:<your port> //self defined port
 ```
 or phone visit(in a same LAN):
 ```
@@ -38,7 +40,7 @@ http://<your server ip>:<port>
 ## 文件服务器最好的作用是在同一局域网(电脑开wifi共享给手机，共用一个路由器情况)下,手机无线浏览并下载电脑上的文件，支持多层目录访问
 1. 在相应下载目录运行fileserv
 2. windows运行`ipconfig /all`,Mac/Linux运行`ifconfig -a` 获取当前主机IP地址
-3. 手机访问http://主机IP:端口号(默认为8001
+3. 手机访问http://主机IP:端口号(IP由服务器显示给出,默认为8001)
 4. 开始文件浏览下下载
 
 # 测试结果
