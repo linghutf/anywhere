@@ -29,13 +29,14 @@ func GenQRCodeByAddr(ipstrs *[]string, port int) {
 	for _, ip := range *ipstrs {
 		if strings.Contains(ip, "192.168.") {
 			addr := fmt.Sprintf("http://%s:%d", ip, port)
-			pngname := strconv.Itoa(index) + ".png"
+			//pngname := strconv.Itoa(index) + ".png"
+			pngname := fmt.Sprintf("%d-visit.png", index)
 			err := WritePng(pngname, addr)
 			if err != nil {
 				log.Fatal(err)
 			}
 			index++
-			fmt.Printf("服务器[%s]二维码%s生成!扫一扫访问.\n", addr, pngname)
+			fmt.Printf("服务器[%s]二维码生成!扫一扫当前目录下[%s]访问.\n", ip, pngname)
 		}
 	}
 }
