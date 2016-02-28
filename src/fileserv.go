@@ -26,25 +26,38 @@ func WritePng(pngname, data string) error {
 }
 
 /*
-deprecated
+exprimental
 show img by local default webbrowser
-*/ /*
-func ShowPng(pngname string) {
+*/
+func ShowPng(addrinfo, pngname string) {
 	filepath, err := filepath.Abs(pngname)
 	if err != nil {
 		log.Fatal(err)
 		return
 	}
-	fileaddr := fmt.Sprintf("file:///%s", filepath)
-	webbrowser.Open(fileaddr)
+
+	var browser string
+	switch runtime.GOOS {
+	case "windows":
+		browser = "C:\\Program Files\\Internet Explorer\\iexplore.exe"
+	case "linux":
+		browser = "gnome-open"
+	case "darwin":
+		browser = "open"
+	default:
+		log.Println("image cannot be opened.")
+	}
+	exec.Command(browser, filepath).Start()
 }
-*/
+
 /*
+ * deprecated: need to use Qt
  * show image by Qt
  * addfinfo : server addr
  * filename : QR png filename
  * platform : environment
  */
+/*
 func ShowImage(addrinfo, filename string) {
 	var binfilename string
 	//judge platform
@@ -60,7 +73,7 @@ func ShowImage(addrinfo, filename string) {
 	c := exec.Command(binfilename, addrinfo, file)
 	c.Run()
 }
-
+*/
 //generate QR picture by server addr (local network)
 //return map[addrinfo]pngfilename
 func GenQRCodeByAddr(ipstrs *[]string, port int) *map[string]string {
@@ -110,7 +123,9 @@ func VisitIps(port int) {
 	infos := GenQRCodeByAddr(&ips, port)
 	//show images
 	for addr, filename := range *infos {
-		go ShowImage(addr, filename)
+		//don't use third program
+		// go ShowImage(addr, filename)
+		go ShowPng(addr, filename)
 	}
 }
 
