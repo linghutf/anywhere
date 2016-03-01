@@ -84,7 +84,7 @@ func GenQRCodeByAddr(ipstrs *[]string, port int) *map[string]string {
 		if strings.Contains(ip, "192.168.") {
 			addr := fmt.Sprintf("http://%s:%d", ip, port)
 			//pngname := strconv.Itoa(index) + ".png"
-			pngname := fmt.Sprintf("%d-addr.png", index)
+			pngname := fmt.Sprintf("%s_%d.png", ip, port)
 			err := WritePng(pngname, addr)
 			if err != nil {
 				log.Fatal(err)
