@@ -8,7 +8,7 @@ Anywhere 局域网文件传输服务
 3. 或者打开当前目录下的二维码图片扫描
 4. 图片可能不止一个，无法访问则切换二维码尝试
 ## 编译使用
-1. *Windows*:![Windows](./test.gif)
+1. *Windows*:![Windows](./test_win.gif)
 2. *OSX*:![OSX](./test_osx.gif)
 
 
